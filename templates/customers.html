@@ -1,0 +1,14 @@
+<h2>Customer Risk Dashboard</h2>
+<table border="1">
+<tr>
+<th>Name</th><th>Mobile</th><th>Bill</th><th>Risk</th>
+</tr>
+{% for c in customers %}
+<tr>
+<td>{{ c.name }}</td>
+<td>{{ c.mobile_number }}</td>
+<td>₹{{ c.monthly_bill }}</td>
+<td>{{ c.risk_status }}</td>
+</tr>
+{% endfor %}
+</table>
