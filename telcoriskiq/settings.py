@@ -1,13 +1,23 @@
+import os
 from pathlib import Path
 
+# Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-telcoriskiq-demo-key'
+# Secret key (replace with your own in production)
+SECRET_KEY = 'django-insecure-CHANGE_ME'
 
+# Debug mode
 DEBUG = True
+# Allowed hosts
+#ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
+#DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+
+
+# Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -15,10 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'riskapp',  # Telco app
+    'riskapp'
 ]
 
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -26,6 +36,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'telcoriskiq.urls'
@@ -33,7 +44,9 @@ ROOT_URLCONF = 'telcoriskiq.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # global templates folder
+        'DIRS': [
+            BASE_DIR / 'templates',   # ✅ THIS IS REQUIRED
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -48,6 +61,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'telcoriskiq.wsgi.application'
 
+# Database (SQLite default for testing)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -55,13 +69,8 @@ DATABASES = {
     }
 }
 
-LANGUAGE_CODE = 'en-us'
+# Password validation
+AUTH_PASSWORD_VALIDATORS = []
 
-TIME_ZONE = 'Asia/Kolkata'
-
-USE_I18N = True
-USE_TZ = True
-
+# Static files
 STATIC_URL = '/static/'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

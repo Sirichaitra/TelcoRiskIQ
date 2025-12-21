@@ -1,0 +1,13 @@
+# Core Django framework
+Django
+#Django==4.2.10
+
+# Optional: For better HTML form rendering
+django-crispy-forms==1.15.0
+
+# Optional: For environment variable management
+#python-dotenv==1.0.1
+
+# Database driver for other DBs (not needed for SQLite, optional if switching to MySQL/PostgreSQL)
+# mysqlclient==2.3.1
+# psycopg2-binary==2.9.9
